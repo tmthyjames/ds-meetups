@@ -1,0 +1,16 @@
+raw_data_path: data/raw/
+processed_data_path: data/processed/
+modeling_data_path: data/modeling
+remote_processed_path: s3://reproml-data/processed/
+
+lyrics:
+  name: lyrics
+  path: "@format {this.lyrics.name}/"
+  partition_cols: [year]
+  source:
+    -
+      url: https://github.com/tmthyjames/cypher/raw/master/notebooks/lyrics1.csv.zip
+      filename: lyrics1.csv
+    -
+      url: https://github.com/tmthyjames/cypher/raw/master/notebooks/lyrics2.csv.zip
+      filename: lyrics2.csv

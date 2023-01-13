@@ -1,0 +1,2 @@
+[console_scripts]
+reproml = reproml.main:main
