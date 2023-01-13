@@ -1,0 +1,18 @@
+CREATE EXTERNAL TABLE serverlessprez.tiger_tract (
+ 
+  TRACTCE STRING,
+  GEOID STRING,
+  NAME STRING,
+  NAMELSAD STRING,
+  MTFCC STRING,
+  FUNCSTAT STRING,
+  ALAND STRING,
+  AWATER STRING,
+  INTPTLAT STRING,
+  INTPTLON STRING,
+  geometry binary
+) PARTITIONED BY (STATEFP STRING, COUNTYFP STRING)
+ ROW FORMAT SERDE 'com.esri.hadoop.hive.serde.JsonSerde'
+                                    STORED AS INPUTFORMAT 'com.esri.json.hadoop.EnclosedJsonInputFormat'
+                                    OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+                                    LOCATION 's3://serverlessprez/data/processed/tiger/tract/';

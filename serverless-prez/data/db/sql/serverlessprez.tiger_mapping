@@ -1,0 +1,16 @@
+CREATE EXTERNAL TABLE serverlessprez.tiger_mapping (
+zip STRING,
+  county STRING,
+  usps_zip_pref_city STRING,
+  usps_zip_pref_state STRING,
+  res_ratio DOUBLE,
+  bus_ratio DOUBLE,
+  oth_ratio DOUBLE,
+  tot_ratio DOUBLE,
+ 
+  countyfp STRING,
+  city STRING
+) PARTITIONED BY (statefp STRING)
+ STORED AS PARQUET
+                                    LOCATION 's3://serverlessprez/data/processed/tiger/mapping/'
+                                    tblproperties ("parquet.compression"="SNAPPY");

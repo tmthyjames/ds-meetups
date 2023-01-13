@@ -1,0 +1,29 @@
+CREATE EXTERNAL TABLE serverlessprez.census_businesspatterns (
+fipstate STRING,
+  fipscty STRING,
+  naics STRING,
+  emp_nf STRING,
+  emp INT,
+  qp1_nf STRING,
+  qp1 INT,
+  ap_nf STRING,
+  ap INT,
+  est INT,
+  n_lt_5 STRING,
+  n5_9 STRING,
+  n10_19 STRING,
+  n20_49 STRING,
+  n50_99 STRING,
+  n100_249 STRING,
+  n250_499 STRING,
+  n500_999 STRING,
+  n1000 STRING,
+  n1000_1 STRING,
+  n1000_2 STRING,
+  n1000_3 STRING,
+  n1000_4 STRING,
+  censtate INT,
+  cencty INT
+)STORED AS PARQUET
+                                    LOCATION 's3://serverlessprez/data/processed/census/businesspatterns/'
+                                    tblproperties ("parquet.compression"="SNAPPY");

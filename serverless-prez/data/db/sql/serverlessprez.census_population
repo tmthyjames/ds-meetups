@@ -1,0 +1,22 @@
+CREATE EXTERNAL TABLE serverlessprez.census_population (
+FIPStxt STRING,
+  Population_2020 DOUBLE,
+  Rural_urban_continuum_code_2013 DOUBLE,
+  Census INT,
+  EstimatesBase INT,
+  PopulationEstimate_2010 INT,
+  PopulationEstimate_2011 INT,
+  PopulationEstimate_2012 INT,
+  PopulationEstimate_2013 INT,
+  PopulationEstimate_2014 INT,
+  PopulationEstimate_2015 INT,
+  PopulationEstimate_2016 INT,
+  PopulationEstimate_2017 INT,
+  PopulationEstimate_2018 INT,
+  PopulationEstimate_2019 INT,
+  st STRING,
+  cty STRING,
+  ctyname STRING
+)STORED AS PARQUET
+                                    LOCATION 's3://serverlessprez/data/processed/census/population/'
+                                    tblproperties ("parquet.compression"="SNAPPY");

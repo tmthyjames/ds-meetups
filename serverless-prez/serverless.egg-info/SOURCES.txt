@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.py
+serverless/__init__.py
+serverless/_settings.py
+serverless/utils.py
+serverless.egg-info/PKG-INFO
+serverless.egg-info/SOURCES.txt
+serverless.egg-info/dependency_links.txt
+serverless.egg-info/top_level.txt

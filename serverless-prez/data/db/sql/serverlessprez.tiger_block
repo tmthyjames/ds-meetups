@@ -1,0 +1,21 @@
+CREATE EXTERNAL TABLE serverlessprez.tiger_block (
+ 
+ 
+  BLOCKCE20 STRING,
+  GEOID20 STRING,
+  NAME20 STRING,
+  MTFCC20 STRING,
+  UR20 STRING,
+  UACE20 STRING,
+  UATYPE20 STRING,
+  FUNCSTAT20 STRING,
+  ALAND20 STRING,
+  AWATER20 STRING,
+  INTPTLAT20 STRING,
+  INTPTLON20 STRING,
+  geometry binary
+) PARTITIONED BY (STATEFP20 STRING, COUNTYFP20 STRING, TRACTCE20 STRING)
+ ROW FORMAT SERDE 'com.esri.hadoop.hive.serde.JsonSerde'
+                                    STORED AS INPUTFORMAT 'com.esri.json.hadoop.EnclosedJsonInputFormat'
+                                    OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+                                    LOCATION 's3://serverlessprez/data/processed/tiger/block/';

@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pandas = "*"
+requests = "*"
+boto3 = "*"
+ipykernel = "*"
+serverless = {editable = true, path = "."}
+dynaconf = "*"
+geopandas = "*"
+pyarrow = "*"
+folium = "*"
+
+[dev-packages]
+openpyxl = "*"
+dvc = {extras = ["s3"], version = "*"}
+
+[requires]
+python_version = "3.8"
